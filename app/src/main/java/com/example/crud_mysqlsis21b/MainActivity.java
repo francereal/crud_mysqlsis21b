@@ -338,7 +338,11 @@ public class MainActivity extends AppCompatActivity {
         }else if(id == R.id.action_salir){
             DialogConfirmacion();
             return true;
+        }else if(id == R.id.acerca){
+            DialogConfirmacion2();
+            return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -373,9 +377,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         dialogo.show();
+
     }
+    private void DialogConfirmacion2(){
+        //startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        String mensaje2 = "Creado por Fran Cereal";
+        dialogo = new AlertDialog.Builder(MainActivity.this);
+        dialogo.setIcon(R.drawable.ic_person);
+        dialogo.setTitle("Acerca de");
+        dialogo.setMessage(mensaje2);
+        dialogo.setCancelable(false);
+        dialogo.setPositiveButton("Salir", new DialogInterface.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            public void onClick(DialogInterface dialogo, int id) {
+                /*Intent intent = new Intent(DashboardLuces.this, luces_control_sms.class);
+                startActivity(intent);*/
+                MainActivity.this.finishAffinity();
+                //MainActivity.this.finish();
+            }
+        });
+        dialogo.setNegativeButton("Volver", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo, int id) {
+                Toast.makeText(getApplicationContext(), "github.com/francereal", Toast.LENGTH_LONG).show();
+            }
+        });
+        dialogo.show();
 
-
+    }
     //Creación de HILOS
     void Hilo(){
         new Thread(new Runnable() {

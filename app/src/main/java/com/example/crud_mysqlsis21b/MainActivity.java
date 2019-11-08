@@ -359,6 +359,7 @@ public class MainActivity extends AppCompatActivity {
         dialogo.setMessage(mensaje);
         dialogo.setCancelable(false);
         dialogo.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             public void onClick(DialogInterface dialogo, int id) {
                 /*Intent intent = new Intent(DashboardLuces.this, luces_control_sms.class);
                 startActivity(intent);*/
